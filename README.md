@@ -17,7 +17,7 @@ A responsive and elegant portfolio website built for a fictional freelance photo
 - **Frontend:** React + Tailwind CSS
 - **Assets:** Unsplash, Pexels
 - **Forms:** EmailJS or FormSubmit (optional)
-- **Deployed on:** Vercel or Netlify
+- **Deployed on:** Render
 
 ## 🧪 Local Setup
 

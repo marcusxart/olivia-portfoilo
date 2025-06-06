@@ -4,6 +4,7 @@ export type Theme = "light" | "dark";
 
 export interface MainContextType {
   theme: Theme;
+  isThreshold: boolean;
 }
 
 export interface PageWrapperProps {

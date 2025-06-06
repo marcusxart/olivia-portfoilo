@@ -18,7 +18,7 @@ const Logo = forwardRef<HTMLAnchorElement, Omit<LinkProps, "to">>(
       <Link
         to="/"
         ref={ref}
-        className="text-3xl font-oswald font-semibold"
+        className="text-3xl font-oswald font-semibold hover:text-gray-300 transition-colors duration-200"
         {...props}
       >
         Olivia.

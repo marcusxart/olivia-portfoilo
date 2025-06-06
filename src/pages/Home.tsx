@@ -7,6 +7,7 @@ import "./home.css";
 import Card from "../components/Card";
 import classNames from "classnames";
 import { Element } from "react-scroll";
+import PageMotion from "../components/PageMotion";
 
 const Home = () => {
   const breakpointColumnsObj = {
@@ -15,7 +16,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <PageMotion>
       <header className="bg-home-hero bg-no-repeat bg-cover h-screen w-full flex items-center">
         <MaxContainer>
           <div className="w-full text-white ">
@@ -60,7 +61,7 @@ const Home = () => {
                     image={project.hero}
                     title={project.name}
                     tag={project.tag}
-                    to={project.id}
+                    to={`project/${project.id}`}
                   />
                 </Tilt>
               ))}
@@ -68,7 +69,7 @@ const Home = () => {
           </Element>
         </div>
       </MaxContainer>
-    </div>
+    </PageMotion>
   );
 };
 

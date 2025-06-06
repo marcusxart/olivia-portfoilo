@@ -1,4 +1,8 @@
 import { createContext } from "react";
 import type { MainContextType } from "../types";
 
-export const MainContext = createContext<MainContextType | null>(null);
+const defaultContext: MainContextType = {
+  theme: "light",
+  isThreshold: false,
+};
+export const MainContext = createContext<MainContextType>(defaultContext);

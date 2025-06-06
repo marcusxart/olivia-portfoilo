@@ -14,6 +14,9 @@ const projects = [
     date: "2024-11-22",
     sections: [
       { type: "image", image: hinder.image03 },
+      {
+        text: "Hinder's interface is designed for seamless user experience, integrating advanced threat detection with an intuitive, immersive design. The workspace features a blend of digital and physical elements, showcasing the future of cybersecurity.",
+      },
       { type: "image", image: hinder.image07 },
     ],
     photoGroup: [hinder.image03, hinder.image06],

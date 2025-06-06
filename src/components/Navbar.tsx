@@ -17,20 +17,21 @@ interface NavbarProps extends React.HTMLAttributes<HTMLElement> {
  */
 
 const Navbar = forwardRef<HTMLElementTagNameMap["nav"], NavbarProps>(
-  ({ colorTheme, ..._props }, ref) => {
+  ({ ..._props }, ref) => {
     const [isOpen, setOpen] = useState(false);
     return (
       <nav
         ref={ref}
         className={classNames(
-          "w-full h-[70px] md:h-[120px] grid place-items-center absolute top-0 left-0 right-0 px-[44px]",
-          { "text-white": colorTheme === "light" }
+          "w-full h-[70px] md:h-[120px] grid place-items-center absolute top-0 left-0 right-0 px-[44px] z-40 text-white"
         )}
         {..._props}
       >
         <div className="flex items-center w-full justify-between">
           <Logo />
-          <Hamburger toggled={isOpen} toggle={setOpen} />
+          <button className="hover:text-gray-300 transition-colors duration-200">
+            <Hamburger toggled={isOpen} toggle={setOpen} />
+          </button>
         </div>
       </nav>
     );

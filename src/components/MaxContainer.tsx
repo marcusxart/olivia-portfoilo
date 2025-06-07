@@ -14,7 +14,7 @@ import type { ChildrenProps } from "../types";
  */
 const MaxContainer = forwardRef<HTMLDivElement, ChildrenProps>(
   ({ children }, ref) => (
-    <div ref={ref} className="w-[85%] mx-auto px-3.5">
+    <div ref={ref} className="lg:w-[85%] mx-auto lg:px-3.5 px-[24px] w-full">
       {children}
     </div>
   )

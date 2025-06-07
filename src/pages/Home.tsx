@@ -12,7 +12,7 @@ import PageMotion from "../components/PageMotion";
 const Home = () => {
   const breakpointColumnsObj = {
     default: 2,
-    640: 1,
+    768: 1,
   };
 
   return (
@@ -20,25 +20,25 @@ const Home = () => {
       <header className="bg-home-hero bg-no-repeat bg-cover h-screen w-full flex items-center">
         <MaxContainer>
           <div className="w-full text-white ">
-            <h1 className="text-[130px] leading-[120px] font-black">
+            <h1 className="text-[40px] sm:text-[80px] leading-[48px] sm:leading-[90px] lg:text-[130px] lg:leading-[120px] font-black">
               Don’t make <br />
               Them think.
             </h1>
-            <p className="opacity-60 text-2xl font-semibold leading-[34px] mt-6 mb-3">
+            <p className="opacity-60 text-base leading-[20px] sm:text-xl sm:leading-[28px] lg:text-2xl font-semibold lg:leading-[34px] mt-2 lg:mt-6 mb-3">
               Mosby is a great team that loves teamwork.
               <br />
               We are making brandings|
             </p>
-            <ArrowButton to="project" offset={-20} />
+            <ArrowButton to="project" offset={-20} hideBg />
           </div>
         </MaxContainer>
       </header>
       <MaxContainer>
-        <div className="mt-[-80px] relative z-[2] pb-[80px]">
-          <Element name="project" className="w-full">
+        <div className="mt-[-80px] relative z-[2] pb-[40px] lg:pb-[80px]">
+          <Element name="project" className="w-full pr-[24px]">
             <Masonry
               breakpointCols={breakpointColumnsObj}
-              className="my-masonry-grid flex ml-[24px] sm:ml-[-64px] w-auto"
+              className="my-masonry-grid flex w-auto"
               columnClassName="bg-clip-padding pl-[24px] "
             >
               {projects?.map((project) => (
@@ -50,7 +50,7 @@ const Home = () => {
                   transitionSpeed={3000} // Increase transition duration (ms)
                   gyroscope={false}
                   className={classNames(
-                    "w-full block h-[350px] mb-[24px] sm:mb-[64px] sm:px-[32px]",
+                    "w-full block h-[300px] lg:h-[350px] mb-[24px] lg:mb-[64px] lg:px-[32px]",
                     {
                       "sm:h-[45%]": project.size === "large",
                       "sm:h-[40%]": project.size === "medium",
@@ -61,7 +61,7 @@ const Home = () => {
                     image={project.hero}
                     title={project.name}
                     tag={project.tag}
-                    to={`project/${project.id}`}
+                    to={`/${project.id}`}
                   />
                 </Tilt>
               ))}

@@ -81,4 +81,20 @@ const projects = [
   },
 ];
 
-export { projects };
+const navLinks = [
+  { path: "/", label: "Home." },
+  // { path: "/studio", label: "Studio." },
+  { path: "/contact", label: "Contact." },
+];
+
+const bio = {
+  email: "contact@olivia.com",
+  phone: "+34 937 606 800",
+  address: "1788 Morningview Lane, 10013 New York",
+  createdBy: {
+    name: "Marcusxart",
+    url: "https://github.com/marcusxart/olivia-portfoilo",
+  },
+};
+
+export { projects, navLinks, bio };

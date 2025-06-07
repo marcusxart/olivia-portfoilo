@@ -18,8 +18,12 @@ const Card = forwardRef<HTMLElementTagNameMap["a"], CardProps>(
         />
         <div className="absolute inset-0 shadow-[inset_0px_33px_50px_-5px_rgba(0,_0,_0,_0.5)] z-[2] pointer-events-none" />
         <div className="absolute z-[3] top-5 left-6 text-white">
-          <span className="text-base capitalize leading-7">{tag}</span>
-          <h2 className="text-2xl font-bold leading-9">{title}</h2>
+          <span className="text-[12px] lg:text-base capitalize leading-3 lg:leading-7">
+            {tag}
+          </span>
+          <h2 className="text-xl lg:text-2xl font-bold leading-6 lg:leading-9">
+            {title}
+          </h2>
         </div>
       </Link>
     );

@@ -1,16 +1,15 @@
 import { motion } from "motion/react";
-import { forwardRef, useContext } from "react";
+import { forwardRef } from "react";
 import type { ChildrenProps } from "../types";
 import Navbar from "./Navbar";
-import { useLocation } from "react-router-dom";
-import { MainContext } from "../contexts";
+import { useLocation, useParams } from "react-router-dom";
 import Footer from "./Footer";
 import { pageContainer, pageTransition } from "../constants/motion";
 
 const PageMotion = forwardRef<HTMLDivElement, ChildrenProps>(
   ({ children }, ref) => {
     const { pathname } = useLocation();
-    const { isThreshold } = useContext(MainContext);
+    const project_id = useParams<{ project_id: string }>()?.project_id;
     return (
       <>
         <motion.div
@@ -31,9 +30,9 @@ const PageMotion = forwardRef<HTMLDivElement, ChildrenProps>(
           transition={pageContainer.transition}
         >
           <Navbar
-            colorTheme={pathname === "/" && !isThreshold ? "light" : undefined}
+            colorTheme={pathname === "/" || project_id ? "light" : "dark"}
           />
-          {children}
+          <div className="min-h-screen w-full">{children}</div>
 
           <Footer />
         </motion.div>

@@ -1,8 +1,9 @@
-import { Navigate, Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import PageWrapper from "./components/PageWrapper";
 import Home from "./pages/Home";
 import Project from "./pages/Project";
 import { AnimatePresence } from "motion/react";
+import Contact from "./pages/Contact";
 
 const MainRoutes = () => {
   const location = useLocation();
@@ -17,12 +18,27 @@ const MainRoutes = () => {
             </PageWrapper>
           }
         />
-        <Route path="/project" element={<Navigate to="/" replace />} />
         <Route
-          path="/project/:project_id"
+          path="/:project_id"
           element={
             <PageWrapper>
               <Project />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <PageWrapper>
+              <Contact />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/*"
+          element={
+            <PageWrapper>
+              <Contact />
             </PageWrapper>
           }
         />

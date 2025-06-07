@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { forwardRef } from "react";
 import {
   Link as ScrollLink,
@@ -8,6 +9,7 @@ type ArrowButtonProps = ScrollLinkProps &
   React.HTMLAttributes<HTMLElement> & {
     /** Optional rotation angle in degrees for the arrow icon */
     rolate?: number;
+    hideBg?: boolean;
   };
 
 /**
@@ -19,13 +21,26 @@ type ArrowButtonProps = ScrollLinkProps &
  */
 const ArrowButton = forwardRef<HTMLDivElement, ArrowButtonProps>(
   (
-    { to, offset = 0, duration = 500, smooth = true, rolate = 0, ...rest },
+    {
+      to,
+      offset = 0,
+      duration = 500,
+      smooth = true,
+      rolate = 0,
+      hideBg,
+      ...rest
+    },
     ref
   ) => {
     return (
       <div
         ref={ref}
-        className="grid place-items-center w-fit cursor-pointer"
+        className={classNames(
+          "grid place-items-center w-fit cursor-pointer rounded-full",
+          {
+            "bg-black md:bg-transparent": !hideBg,
+          }
+        )}
         {...rest}
       >
         <ScrollLink
@@ -38,7 +53,7 @@ const ArrowButton = forwardRef<HTMLDivElement, ArrowButtonProps>(
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="14.486"
-            height="18.412"
+            height="14.412"
             viewBox="0 0 14.486 18.412"
             className="fill-white"
             style={{ transform: `rotate(${rolate}deg)` }}

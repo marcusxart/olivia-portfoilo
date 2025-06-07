@@ -14,3 +14,9 @@ export interface PageWrapperProps {
 export interface ChildrenProps {
   readonly children?: React.ReactNode;
 }
+
+export type TextFieldProps =
+  | ({
+      type?: "text" | "email" | "password";
+    } & React.InputHTMLAttributes<HTMLInputElement>)
+  | ({ type: "textarea" } & React.TextareaHTMLAttributes<HTMLTextAreaElement>);

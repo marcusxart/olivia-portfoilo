@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import MaxContainer from "./MaxContainer";
 import { forwardRef } from "react";
+import { bio } from "../constants/data";
 
 const Footer = forwardRef<HTMLElementTagNameMap["footer"]>(
   ({ ...props }, ref) => {
@@ -13,8 +14,8 @@ const Footer = forwardRef<HTMLElementTagNameMap["footer"]>(
         {...props}
       >
         <MaxContainer>
-          <div className="w-full flex text-xl leading-8 font-extrabold">
-            <div className="flex-1">
+          <div className="w-full flex flex-col lg:flex-row lg:text-xl leading-[20px] lg:leading-8 font-extrabold gap-[16px]">
+            <div className="flex-1 text-center lg:text-left">
               <Logo />
               <p className="mt-3">
                 {" "}
@@ -22,20 +23,21 @@ const Footer = forwardRef<HTMLElementTagNameMap["footer"]>(
                 <br />
                 Made by{" "}
                 <Link
-                  to="https://github.com/marcusxart/olivia-portfoilo"
+                  to={bio.createdBy.url}
+                  rel="noopener noreferrer"
                   target="_blank"
-                  className="underline font-semibold text-white hover:text-gray-300 transition-colors duration-200"
+                  className="underline font-semibold text-white hover:opacity-70 transition-all duration-300"
                 >
-                  Marcusxart
+                  {bio.createdBy.name}
                 </Link>
               </p>
             </div>
-            <div className="flex-1 text-right">
-              <p>1788 Morningview Lane, 10013 New York</p>
+            <div className="flex-1 text-center lg:text-right">
+              <p>{bio.address}</p>
               <p className="mt-3">
-                +33(0)3 20 88 11 59
+                {bio.phone}
                 <br />
-                contact@olivia.com
+                {bio.email}
               </p>
             </div>
           </div>
@@ -44,5 +46,7 @@ const Footer = forwardRef<HTMLElementTagNameMap["footer"]>(
     );
   }
 );
+
+Footer.displayName = "Footer";
 
 export default Footer;

@@ -9,7 +9,7 @@ const Footer = forwardRef<HTMLElementTagNameMap["footer"]>(
     const year = new Date().getFullYear();
     return (
       <footer
-        className="py-14 bg-[#232323] w-full text-white"
+        className="py-9 lg:py-14 bg-[#232323] w-full text-white"
         ref={ref}
         {...props}
       >

@@ -4,8 +4,37 @@ import MaxContainer from "../components/MaxContainer";
 import PageMotion from "../components/PageMotion";
 import TextField from "../components/TextField";
 import { bio } from "../constants/data";
+import { useState } from "react";
 
 const Contact = () => {
+  const [value, setValue] = useState({
+    name: "",
+    email: "",
+    company: "",
+    projectDetail: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const { name, email, company, projectDetail } = value;
+
+    const subject = `New project inquiry from ${name || "a potential client"}`;
+    const body = `
+  Name: ${name}
+  Email: ${email}
+  Company: ${company}
+  
+  Project Details:
+  ${projectDetail}
+    `.trim();
+
+    const mailto = `mailto:your@email.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailto;
+  };
   return (
     <PageMotion>
       <div className="w-full flex flex-col gap-[40px] lg:gap-[64px]">
@@ -27,13 +56,43 @@ const Contact = () => {
           <MaxContainer>
             <div className="flex flex-col lg:flex-row w-full items-center gap-[64px]">
               <form
-                action=""
+                onSubmit={handleSubmit}
                 className="flex w-full lg:w-[60%] flex-col gap-7 lg:gap-9"
               >
-                <TextField placeholder="Your name" />
-                <TextField placeholder="Your email" type="email" />
-                <TextField placeholder="Your company" />
-                <TextField placeholder="Your name" type="textarea" />
+                <TextField
+                  placeholder="Your name"
+                  required
+                  value={value.name}
+                  onChange={(e) => {
+                    setValue({ ...value, name: e.target.value });
+                  }}
+                />
+                <TextField
+                  placeholder="Your email"
+                  type="email"
+                  required
+                  value={value.email}
+                  onChange={(e) => {
+                    setValue({ ...value, email: e.target.value });
+                  }}
+                />
+                <TextField
+                  placeholder="Your company"
+                  required
+                  value={value.company}
+                  onChange={(e) => {
+                    setValue({ ...value, company: e.target.value });
+                  }}
+                />
+                <TextField
+                  placeholder="Tell us about your project"
+                  type="textarea"
+                  required
+                  value={value.projectDetail}
+                  onChange={(e) => {
+                    setValue({ ...value, projectDetail: e.target.value });
+                  }}
+                />
                 <Button text="Send" />
               </form>
               <ul className="w=full lg:w-[40%] [&_span]:text-[16px] text-[18px] [&_span]:font-normal font-semibold [&_span]:inline-block [&_span]:mb-[12px] flex flex-col  gap-[28px] lg:gap-[40px] ">

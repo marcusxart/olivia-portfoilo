@@ -2,7 +2,7 @@ import { forwardRef, useEffect, useState } from "react";
 import { Puff } from "react-loader-spinner";
 import { AnimatePresence, motion } from "motion/react";
 
-const SplashScreen = forwardRef(() => {
+const SplashScreen = forwardRef<HTMLDivElement>((_props, ref) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const SplashScreen = forwardRef(() => {
   return (
     <AnimatePresence>
       {isLoading && (
-        <div className="fixed z-[90] inset-0 text-white">
+        <div className="fixed z-[90] inset-0 text-white" ref={ref}>
           <motion.div className="grid place-items-center w-full h-full relative overflow-hidden">
             <motion.div
               className="absolute bg-black w-full h-full"

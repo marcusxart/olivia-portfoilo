@@ -32,7 +32,7 @@ const Project = () => {
           </MaxContainer>
         </div>
       </header>
-      <section className="py-[80px]">
+      <section className="lg:py-[80px] py-[40px]">
         <MaxContainer>
           <div className="w-full flex flex-col gap-8 lg:gap-14">
             <div>

@@ -58,7 +58,7 @@ const PageWrapper = forwardRef<HTMLDivElement, ChildrenProps>((_props, ref) => {
         <Element name="top" />
 
         {isThreshold && (
-          <span className="fixed bottom-[56px] right-[40px] z-10">
+          <span className="fixed bottom-[56px] right-[24px] lg:right-[40px] z-10">
             <ArrowButton to="top" rolate={180} />
           </span>
         )}

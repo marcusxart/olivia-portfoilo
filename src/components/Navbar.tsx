@@ -57,7 +57,48 @@ const Navbar = forwardRef<HTMLElementTagNameMap["nav"], NavbarProps>(
               // }}
             >
               <motion.div
-                className="h-full bg-[#232323] flex flex-col w-[66%] overflow-hidden"
+                className="h-full  bg-[#232323] flex lg:hidden flex-col w-[100%] overflow-hidden"
+                variants={slideLeft}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                key={"nav-left"}
+              >
+                <div className="h-[70px] md:h-[120px] flex items-center justify-end lg:px-[44px] px-[24px]">
+                  <button className="hover:opacity-70 transition-colors duration-300">
+                    <Hamburger toggled={isOpen} toggle={setOpen} />
+                  </button>
+                </div>
+                <div className="flex-1 w-full flex items-center px-[24px] lg:px-[44px] pb-[70px] md:pb-[120px]">
+                  <MaxContainer>
+                    <ul>
+                      {navLinks.map((link, index) => (
+                        <motion.li
+                          key={index}
+                          className="text-[32px] lg:text-[44px] font-black"
+                          variants={slideLeftStagger}
+                          custom={index}
+                          initial="initial"
+                          animate="animate"
+                          exit="exit"
+                        >
+                          <Link
+                            className="transition-all duration-300 hover:tracking-widest hover:opacity-70"
+                            to={link.path}
+                            onClick={() => {
+                              setOpen(false);
+                            }}
+                          >
+                            {link.label}
+                          </Link>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </MaxContainer>
+                </div>
+              </motion.div>
+              <motion.div
+                className="hidden h-full bg-[#232323] lg:flex flex-col w-[66%] overflow-hidden"
                 variants={slideLeft}
                 initial="initial"
                 animate="animate"
@@ -100,7 +141,7 @@ const Navbar = forwardRef<HTMLElementTagNameMap["nav"], NavbarProps>(
                 </div>
               </motion.div>
               <motion.div
-                className="w-[34%] h-full bg-black flex flex-col overflow-hidden"
+                className="w-[34%] h-full bg-black hidden lg:flex flex-col overflow-hidden"
                 variants={slideRight}
                 initial="initial"
                 animate="animate"

@@ -1,16 +1,35 @@
 import { forwardRef } from "react";
 import { Link, type LinkProps } from "react-router-dom";
 
-interface CardProps extends LinkProps {
+/**
+ * Props for the `Card` component.
+ * Extends React Router's LinkProps to support navigation.
+ */
+export interface CardProps extends LinkProps {
+  /** URL of the image to display in the card */
   image: string;
+  /** Title text displayed on the card */
   title: string;
+  /** Tag or category label for the card */
   tag: string;
 }
 
-const Card = forwardRef<HTMLElementTagNameMap["a"], CardProps>(
-  ({ image, title, tag, ..._props }, ref) => {
+/**
+ * `Card` is a styled navigational component that renders an image
+ * with overlaid title and tag text. It uses `react-router-dom`'s `Link` under the hood.
+ *
+ * @param {CardProps} props - Props including `image`, `title`, `tag`, and all valid `Link` props
+ * @param {React.Ref<HTMLAnchorElement>} ref - Forwarded ref to the underlying anchor element
+ * @returns {JSX.Element}
+ */
+const Card = forwardRef<HTMLAnchorElement, CardProps>(
+  ({ image, title, tag, className, ...props }, ref) => {
     return (
-      <Link ref={ref} className="w-full h-full relative  block " {..._props}>
+      <Link
+        ref={ref}
+        className={`w-full h-full relative block ${className ?? ""}`}
+        {...props}
+      >
         <img
           src={image}
           alt={`${title} image`}

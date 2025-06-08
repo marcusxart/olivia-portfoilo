@@ -2,15 +2,17 @@ import { forwardRef } from "react";
 import type { ChildrenProps } from "../types";
 
 /**
- * MaxContainer
+ * MaxContainer is a layout wrapper that centers and constrains content to a max width.
  *
- * A reusable layout component that constrains its children to a maximum width
- * of 1440px and centers them horizontally.
+ * Useful for keeping page layouts consistent with responsive padding and alignment.
  *
- * @param {ChildrenProps} _props - React children to render within the container.
- * @param {React.Ref<HTMLDivElement>} ref - Forwarded ref to the container div.
+ * ## Features
+ * - Max width of ~1440px on large screens
+ * - Horizontal padding on all viewports
+ * - Centers content using Tailwind utility classes
  *
- * @returns A styled div wrapper for consistent page layout.
+ * @param children - Elements to be rendered inside the container
+ * @param ref - Optional forwarded ref to the outer div
  */
 const MaxContainer = forwardRef<HTMLDivElement, ChildrenProps>(
   ({ children }, ref) => (
@@ -20,7 +22,6 @@ const MaxContainer = forwardRef<HTMLDivElement, ChildrenProps>(
   )
 );
 
-// Assign display name for better debugging and DevTools visibility
 MaxContainer.displayName = "MaxContainer";
 
 export default MaxContainer;

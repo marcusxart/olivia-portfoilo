@@ -5,7 +5,7 @@ const NotFound = () => {
     <div className="grid place-items-center w-full h-screen">
       <div>
         <h1>404</h1>
-        <Button text="Home" />
+        <Button>Home</Button>
       </div>
     </div>
   );

@@ -9,6 +9,10 @@ const MainRoutes = () => {
   const location = useLocation();
   return (
     <AnimatePresence mode="wait">
+      {/* 
+        Pass location and key to Routes to enable animation of route changes.
+        The key ensures AnimatePresence correctly detects route changes.
+      */}
       <Routes location={location} key={location.pathname}>
         <Route
           path="/"
@@ -28,14 +32,6 @@ const MainRoutes = () => {
         />
         <Route
           path="/contact"
-          element={
-            <PageWrapper>
-              <Contact />
-            </PageWrapper>
-          }
-        />
-        <Route
-          path="/*"
           element={
             <PageWrapper>
               <Contact />
